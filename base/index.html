@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>111</p>
+  <script>
+
+    var result = {
+      data: {
+        name: 'Weize'
+      },
+      fun: function () {
+        console.log(111)
+      }
+    }
+
+    var proxy = new Proxy(result, {
+      get: function (target, key) {
+        return target[key]
+      }
+    })
+    proxy.data.name = '新数据'
+    console.log(result.data)
+  </script>
+</body>
+
+</html>
